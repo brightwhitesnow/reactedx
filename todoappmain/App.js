@@ -3,7 +3,8 @@ import { StyleSheet, ScrollView, Text, View, Button, SafeAreaView, Switch } from
 import React from 'react';
 import { Constants } from 'expo';
 
-let id = 0
+
+
 
 const styles = StyleSheet.create({
     todoContainer: {
@@ -36,27 +37,36 @@ const Todo = props => (
 )
 
 export default class App extends React.Component {
+
+
+
   constructor() {
     super()
     this.state = {
       todos: [],
+      id: 0,
     }
   }
 
   addTodo() {
-    id++
+    let id = this.state.id + 1
+    console.log(id)
     const text = `Todo number ${id}`
     this.setState({
       todos: [
         ...this.state.todos,
         {id: id, text: text, checked: false},
       ],
+      id: id
     })
   }
 
   removeTodo(id) {
+    console.log(this.state.id)
+    let todos = this.state.todos.filter(todo => todo.id !== id)
     this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== id)
+      todos: todos,
+      id: this.state.id - 1
     })
   }
 
