@@ -10,12 +10,12 @@ const ScrollViewContacts = props => (
     {props.contacts.map(contact => <Row {...contact} />)}
   </ScrollView>
 )
+
+
+
 ScrollViewContacts.propTypes = {
   contacts: PropTypes.array,
 }
-
-
-
 
 
 export default ScrollViewContacts

@@ -7,11 +7,11 @@ const renderItem = ({item}) => <Row {...item} />
 const FlatListContacts = props => (
   <FlatList renderItem={renderItem} data={props.contacts} />
 )
+
+
+
 FlatListContacts.propTypes = {
   contacts: PropTypes.array,
 }
-
-
-
 
 export default FlatListContacts

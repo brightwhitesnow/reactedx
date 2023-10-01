@@ -8,59 +8,54 @@ import FlatListContacts from './flatlistcontacts'
 import SectionListContacts from './sectionlistcontacts'
 import AddContactForm from './contactform'
 
-  export default class App extends React.Component {
-   state = {
+
+
+
+
+
+
+
+
+
+export default class App extends React.Component {
+  state = {
     showContacts: true,
     showForm: false,
     contacts: contacts,
-   }
-
-   toggleContacts = () => {
+  }
+  addContact = newContact => {
+    this.setState(prevState => ({showForm: false, contacts: [...prevState.contacts, newContact]}))
+  }
+  toggleContacts = () => {
     this.setState(prevState => ({showContacts: !prevState.showContacts}))
   }
-
   sort = () => {
-     this.setState(prevState => ({contacts: prevState.contacts.sort(compareNames)}))
+    this.setState(prevState => ({contacts: prevState.contacts.sort(compareNames)}))
   }
-
-    showForm = () => {
+  showForm = () => {
     this.setState({showForm: true})
-    }
-
-    hideForm = () => {
-        this.setState({showForm: false})
-    }
-
+  }
   render() {
-    if (this.state.showForm) return <AddContactForm hideForm={this.hideForm}/>
-
+    if (this.state.showForm) return <AddContactForm onSubmit={this.addContact} />
     return (
       <View style={styles.container}>
-        <Button title="toggle contacts" onPress={this.toggleContacts} style={styles.button} />
-         <Button title="add contact" onPress={this.showForm} />
-         {this.state.showContacts && <SectionListContacts contacts={this.state.contacts} style={styles.button} />}
+        <Button title="toggle contacts" onPress={this.toggleContacts} />
+        <Button title="add contact" onPress={this.showForm} />
+        {this.state.showContacts && <SectionListContacts contacts={this.state.contacts} />}
       </View>
     );
   }
-}
 
+
+}
 const styles = StyleSheet.create({
   container: {
-     flex: 1,
+    flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 50,
+    paddingTop: 100,
   },
-  button: {
-//    width: 100,
-      flexDirection: 'row',
-      height: 50,
-      backgroundColor: 'yellow',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: 50,
-      elevation: 3,
-  }
 });
+
 
 
 
