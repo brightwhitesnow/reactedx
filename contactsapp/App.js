@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, FlatList, Button } from 'react-native';
 import React from 'react';
 import {Constants} from 'expo'
@@ -7,7 +7,7 @@ import ScrollViewContacts from './scrollviewcontacts'
 import FlatListContacts from './flatlistcontacts'
 import SectionListContacts from './sectionlistcontacts'
 import AddContactForm from './contactform'
-
+import { registerRootComponent } from 'expo';
 
 
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 });
 
 
-
+registerRootComponent(App);
 
 
 
