@@ -167,14 +167,19 @@ const lastNames = [
   'Murphy',
 ];
 
-const rand = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
+const rand = (max, min = 0) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
 const generateName = () =>
-  `${firstNames[rand(firstNames.length - 1)]} ${lastNames[rand(lastNames.length - 1)]}`;
-const generatePhoneNumber = () => `${rand(999, 100)}-${rand(999, 100)}-${rand(9999, 1000)}`;
+  `${firstNames[rand(firstNames.length - 1)]} ${
+    lastNames[rand(lastNames.length - 1)]
+  }`;
+const generatePhoneNumber = () =>
+  `${rand(999, 100)}-${rand(999, 100)}-${rand(9999, 1000)}`;
 const createContact = () => ({
   name: generateName(),
   phone: generatePhoneNumber(),
 });
-export const compareNames = (contact1, contact2) => contact1.name > contact2.name;
+export const compareNames = (contact1, contact2) =>
+  contact1.name > contact2.name;
 const addKeys = (val, key) => ({key, ...val});
 export default Array.from({length: NUM_CONTACTS}, createContact).map(addKeys);
