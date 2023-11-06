@@ -5,14 +5,14 @@ import {
   createStackNavigator,
   createSwitchNavigator,
   createBottomTabNavigator,
-} from '@react-navigation/native';
-
-import AddContactScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/AddContactScreen.js';
-import SettingsScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/SettingsScreen.js';
-import ContactListScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/ContactListScreen.js';
-import ContactDetailsScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/ContactDetailsScreen.js';
-import LoginScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/LoginScreen.js';
-import contacts from '/Volumes/Data/BennyBoop/Coding/contactsapp/contacts.js';
+} from 'react-navigation';
+import Expo from 'expo';
+import AddContactScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/AddContactScreen';
+import SettingsScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/SettingsScreen';
+import ContactListScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/ContactListScreen';
+import ContactDetailsScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/ContactDetailsScreen';
+import LoginScreen from '/Volumes/Data/BennyBoop/Coding/contactsapp/screens/LoginScreen';
+import contacts from '/Volumes/Data/BennyBoop/Coding/contactsapp/contacts';
 
 const MainStack = createStackNavigator(
   {
@@ -81,4 +81,4 @@ export default class App extends React.Component {
   }
 }
 
-// registerRootComponent(App);
+registerRootComponent(App);
