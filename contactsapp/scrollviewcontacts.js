@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import {ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
 import Row from '/Volumes/Data/BennyBoop/Coding/contactsapp/row.js';
