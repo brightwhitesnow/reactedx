@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "contactsapp",
-    "slug": "contactsapp",
+    "name": "re_ini_contactsapp",
+    "slug": "re_ini_contactsapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

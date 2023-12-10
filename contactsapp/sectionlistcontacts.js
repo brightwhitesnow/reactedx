@@ -2,7 +2,7 @@ import * as React from "react";
 import {SectionList, Text} from 'react-native';
 import PropTypes from 'prop-types';
 
-import Row from '/Volumes/Data/BennyBoop/Coding/contactsapp/row.js';
+import Row from './row.js';
 
 const renderSectionHeader = ({section}) => <Text>{section.title}</Text>;
 

@@ -179,7 +179,7 @@ const createContact = () => ({
   name: generateName(),
   phone: generatePhoneNumber(),
 });
-export const compareNames = (contact1, contact2) =>
+const compareNames = (contact1, contact2) =>
   contact1.name > contact2.name;
 const addKeys = (val, key) => ({key, ...val});
-export default Array.from({length: NUM_CONTACTS}, createContact).map(addKeys);
+export default contacts = Array.from({length: NUM_CONTACTS}, createContact).map(addKeys);
