@@ -17,14 +17,18 @@ function ContactListScreen({ navigation}) {
 
   const toggleContacts = () => toggleShowContacts(!showContacts);
   
+  addContact = screenProps => {
+    navigation.push('AddContact', screenProps)
+  };
 
   handleSelectContact = contact => {
     navigation.push('ContactDetails', contact)
-  }  
+  };
 
   return (
     <View style={styles.container}>
-      <Button title="toggle contacts" onPress={toggleContacts} />
+      <Button title="Toggle Contacts" onPress={toggleContacts} />
+      <Button title="Add Contact" onPress={addContact} color="#a41034" />
       {showContacts && (
         <SectionListContacts
           contacts={contacts}

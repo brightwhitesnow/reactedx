@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button, View, StyleSheet, Text, TextInput } from "react-native";
 import { login } from "../api";
 import { registerRootComponent } from "expo";
+import ContactListScreen from "./ContactListScreen";
 
 export default function LoginScreen({ navigation, Login }) {
   state = {
@@ -12,7 +13,7 @@ export default function LoginScreen({ navigation, Login }) {
   _login = async () => {
     try {
       const success = await login(this.state.username, this.state.password);
-      this.props.navigation.navigate("Main");
+      navigation.navigate(ContactListScreen);
     } catch (err) {
       const errMessage = err.message;
       this.setState({ err: errMessage });
@@ -46,7 +47,7 @@ export default function LoginScreen({ navigation, Login }) {
       />
       <Button
         title="Press to Log In"
-        onPress={() => navigation.navigate("Main")}
+        onPress={() => navigation.navigate(ContactListScreen)}
       />
     </View>
   );
@@ -68,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-registerRootComponent(LoginScreen);
+// registerRootComponent(LoginScreen);

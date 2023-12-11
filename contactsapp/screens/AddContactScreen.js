@@ -2,10 +2,11 @@ import * as React from "react";
 import AddContactForm from '../contactform'
 
 
-function AddContactScreen({ navigation }) {
+function AddContactScreen({ navigation, screenProps, formState }) {
   navigationOptions = {
     headerTitle: 'New Contact',
   }
+
 
   handleSubmit = formState => {
     this.props.screenProps.addContact(formState)
