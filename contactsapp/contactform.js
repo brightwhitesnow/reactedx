@@ -43,7 +43,6 @@ export default class AddContactForm extends React.Component {
   };
 
   validateForm = () => {
-    console.log(this.state);
     const names = this.state.name.split(' ');
     if (
       +this.state.phone >= 0 &&

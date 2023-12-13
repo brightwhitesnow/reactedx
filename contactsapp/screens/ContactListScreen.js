@@ -5,25 +5,27 @@ import SectionListContacts from '../sectionlistcontacts'
 
 
 
-function ContactListScreen({ navigation}) {
-  navigationOptions = ({navigation}) => ({
-    headerTitle: 'Contacts',
-    headerRight: (
-      <Button title="Add" onPress={() => navigation.navigate('AddContact')} color="#a41034" />
-    ),
-  })
-
+function ContactListScreen({ navigation, route}) {
   const [showContacts, toggleShowContacts] = useState(true);
 
   const toggleContacts = () => toggleShowContacts(!showContacts);
   
-  addContact = screenProps => {
-    navigation.push('AddContact', screenProps)
+  const addContact = () => {
+    navigation.push('AddContact')
   };
 
-  handleSelectContact = contact => {
+  const updateContacts = () => {
+    if (route.params && route.params.isFormValid) {
+      contacts.push({name: route.params.name, phone: route.params.phone});
+    }
+    route.params = null;
+  }
+
+  const handleSelectContact = contact => {
     navigation.push('ContactDetails', contact)
   };
+
+  updateContacts();
 
   return (
     <View style={styles.container}>
@@ -32,7 +34,7 @@ function ContactListScreen({ navigation}) {
       {showContacts && (
         <SectionListContacts
           contacts={contacts}
-          onSelectContact={this.handleSelectContact}
+          onSelectContact={handleSelectContact}
         />
       )}
     </View>
