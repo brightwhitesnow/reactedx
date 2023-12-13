@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 const ContactStack = () => {
     return (
-      <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Navigator initialRouteName="ContactList">
         <Stack.Screen name="ContactList" component={ContactListScreen} />
         <Stack.Screen name="ContactDetails" component={ContactDetailsScreen} options={({route}) => ({title: route.params.name})} />
         <Stack.Screen name="AddContact" component={AddContactScreen} />

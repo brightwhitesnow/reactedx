@@ -4,7 +4,7 @@ import { login } from "../api";
 import { registerRootComponent } from "expo";
 import ContactListScreen from "./ContactListScreen";
 
-export default function LoginScreen({ navigation, Login }) {
+export default function LoginScreen({ navigation}) {
   state = {
     username: "",
     password: "",
@@ -13,7 +13,7 @@ export default function LoginScreen({ navigation, Login }) {
   _login = async () => {
     try {
       const success = await login(this.state.username, this.state.password);
-      navigation.navigate(ContactListScreen);
+      navigation.navigate("ContactList");
     } catch (err) {
       const errMessage = err.message;
       this.setState({ err: errMessage });
@@ -47,7 +47,7 @@ export default function LoginScreen({ navigation, Login }) {
       />
       <Button
         title="Press to Log In"
-        onPress={() => navigation.navigate(ContactListScreen)}
+        onPress={() => navigation.navigate("ContactList")}
       />
     </View>
   );
